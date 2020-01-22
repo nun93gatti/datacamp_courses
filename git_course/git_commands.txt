@@ -1,0 +1,85 @@
+git status : which displays a list of the files that have been modified 
+	     since the last time changes were saved (status of repository)
+
+git diff filename : To compare the file as it currently is to what you last saved
+
+git diff : without any filenames will show you all the changes in your repository
+
+git diff : directory will show you the changes to the files in some directory.
+
+git add : to add file to the staging area
+
+git diff -r HEAD :  The -r flag means "compare to a particular revision", and HEAD 
+		    is a shortcut meaning "the most recent commit"
+
+git commit -m "MESSAGE" : It always saves everything that is in the staging 
+			  area as one unit
+
+git commit --amend - m "new message" : If you accidentally mistype a commit message, 
+				       you can change it using the --amend flag.
+
+git log : is used to view the log of the project's history.
+
+git show 0da2f7 : is used to view the details of a specific commit (first chars of the 
+                  hash code of the commit)
+
+git show HEAD : used to see the details about the last commit 
+		(HEAD~1, HEAD~2 refers to the previous commit and so on)
+
+git annotate filename :shows who made the last change to each line of a file and when
+
+git diff HEAD~1..HEAD~3 / git diff ecv32 amdke (hash code starts) :  shows the changes made in a particular commit
+
+git add . or filename :  shows the changes made in a particular commit
+
+git clean -n/-f: -n (will show you a list of files that are in the repository, but whose history Git is not currently tracking)
+		 -f (will then delete those files from the rep) 
+
+git config --list : shows the settings of Git (i.e. git config --global user.mail rep.loop@datacamp.com to change the value of the email address)
+                    --list --system: settings for every user on this computer.
+		    --list --global: settings for every one of your projects.
+                    --list --local: settings for one specific project.
+
+git checkout -- filename : Suppose you have made changes to a file, then decide you want to undo them 
+git reset  : will unstage files that we previously stages using git add 
+	i.e.
+	    git reset HEAD filename (goes back to the unstage phase (red when you do git status))
+	    git checkout -- filename (removed from the unstage phase)
+
+git checkout sa3vc241 reports.txt :would replace the current version of report.txt with the version commited 
+                                  previously which has an hash starting with sa3vc241 
+
+cat filename : to display the contents
+
+git diff summary-statistics..master : shows the difference between the master
+				      and the branch
+
+git checkout summary-statistics : to switch to the branch "summary-statistics", add -b to create a new branch
+
+git rm filename : to delete a file from the branch, remember to commit 
+
+git merges source destination : to merge two branches
+
+---merge something with conflicts (git automatically merge additional files and deleted files)------
+git merge a b  : you will have log errors like ("conflicts error") 
+nano conflictfiles.txt : remove the conflict lines indicated by <<<<<<<<<
+git add conflictfiles.txt
+git commit -m
+-------------------
+
+git init proj-name : to create a new repository
+
+git init /path/to/folder : to turn a folder into a repository
+
+git clone https://...   name : to clone a git rep giving a name to the receiver folder 
+
+git remote : to check from where the rep was cloned
+
+git pull : to pull from the remote branch normally origin -> equivalent to git pull origin 
+
+git push origin master : to push to the origin remot your master branch
+
+------------pushing with some conflicts--------------
+git push origin master : you will get errors 
+git pull origin master : to bring your repository up to date with origin
+git push origin master
